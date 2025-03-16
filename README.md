@@ -8,10 +8,12 @@ Inspired by Bubble for K-Pop idols, tailored for educational content creators
   - Creator Dashboard: See all messages in a unified group chat
 
 🔐 Secure Google Authentication
-- Seamless sign-up/login with Google accounts
+- Seamless sign-up/login using firebase
 
 💌 Smart Messaging Modes
 - Private Replies: Direct responses to individual questions
 - Broadcast Mode: Send study tips/motivation to all viewers while maintaining personal feel
+
+🖥️ Coded with: React, Firebase, (Maybe MongoDB later, but not yet)
 
 Website is still in progress!

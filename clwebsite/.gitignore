@@ -1,0 +1,42 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ✅ Node dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# ✅ Testing
+/coverage
+
+# ✅ Production build artifacts
+/build
+/dist
+
+# ✅ Misc OS/system files
+.DS_Store
+Thumbs.db
+
+# ✅ Local environment files (these often contain secrets)
+.env
+.env.*
+!.env.example  # Keep a sample env file if needed
+
+# ✅ Firebase config (these can expose your project ID or private keys)
+firebase.json
+.firebaserc
+serviceAccountKey.json
+
+# ✅ Firebase functions cache
+firebase-debug.log
+firebase-debug.*.log
+
+# ✅ Sensitive or local-only JavaScript files
+src/firebase.js  # If you store config directly here (consider moving to .env)
+
+# ✅ IDE/editor specific (optional)
+.vscode/
+
+# ✅ Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

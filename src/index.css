@@ -1,0 +1,17 @@
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Add hover effects */
+.link-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.link-button:active {
+  transform: scale(0.98);
+}
+
+

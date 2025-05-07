@@ -1,12 +1,22 @@
-# React + Vite
+# One-to-Many Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a real-time chat application designed specifically for **content creators** to engage directly with their audience. It solves the common issue of traditional broadcast platforms—like Instagram Channels—where creators can send messages but can't receive individual replies in an organized way.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### One-to-Many Chat Model
+- Content creators can see messages from all users.
+- Each user only sees messages from the content creator.
+- This maintains a personal-feeling interaction without overwhelming the creator.
 
-## Expanding the ESLint configuration
+### Frontend
+- Built using **React** with **Vite** for lightning-fast development.
+- Modular components and dynamic routing for a scalable, maintainable codebase.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+- **Firebase Authentication** handles secure sign-in/sign-up workflows.
+- **Cloud Firestore** enables real-time message storage and syncing across users.
+
+## 📁 Tech Stack
+- **Frontend:** React, Vite  
+- **Backend:** Firebase (Authentication & Firestore)

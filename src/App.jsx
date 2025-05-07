@@ -49,8 +49,8 @@ const App = () => (
           <div style={styles.container}>
             <div style={styles.contentContainer}>
               <Routes>
-                <Route element={<Layout />}>
-                  <Route path="/" element={<HomeButtons />} />
+                <Route>
+                  <Route path="/" element={<HomeDescAndButtons />} />
                   <Route path="/signin" element={<SignInPage />} />
                   <Route path="/createaccount" element={<CreateAccountPage />} />
                 </Route>
@@ -81,10 +81,46 @@ const App = () => (
   </Router>
 );
 
-const HomeButtons = () => (
-  <div style={styles.buttonContainer}>
-    <Link to="/signin" style={styles.button}>Sign In</Link>
-    <Link to="/createaccount" style={styles.button}>Create Account</Link>
+const HomeDescAndButtons = () => (
+  <div style = {styles.homeContainer}>
+    <div className = "dashboard-banner">
+      <div className = "banner-left">
+        <button className="dashboard-button" onClick = {()=>document.getElementById("home").scrollIntoView({behavior: 'smooth'})}>
+          Home
+        </button>
+        <button className = "dashboard-button" onClick = {()=>document.getElementById("about-site").scrollIntoView({behavior: 'smooth'})}>
+          About this site
+        </button>
+        <button className = "dashboard-button" onClick = {()=>document.getElementById("about-me").scrollIntoView({behavior: 'smooth'})}>
+          About me!
+        </button>
+      </div>
+    </div>
+
+    {/*Snap scroll section 1*/}
+    <div id = "home" style = {styles.section}>
+      <h1>Cameron Lim's Online Cafe</h1>
+      <div style={styles.subtitleContainer}>
+        <h2>Chat with Cameron Lim and his community :) 🖥️ 💬</h2>
+      </div>
+      
+      <div style={styles.buttonContainer}>
+        <Link to="/signin" style={styles.button}>Sign In</Link>
+        <Link to="/createaccount" style={styles.button}>Create Account</Link>
+      </div>  
+    </div>
+
+    {/*Snap scroll section 2*/}
+    <div id = "about-site" style = {styles.section}>
+      <h2>About this site</h2>
+      <p>More info coming soon...</p>
+    </div>
+
+    {/*Snap scroll section 3*/}
+    <div id = "about-me" style = {styles.section}>
+      <h2>About Me</h2>
+      <p>This site was fully developed by me, Cameron!</p>
+    </div>
   </div>
 );
 
@@ -95,6 +131,14 @@ const NotFoundRedirect = () => {
 };
 
 const styles = {
+  homeContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
+    boxSizing: 'border-box',
+    scrollBehavior: 'smooth',
+  },
   container: {
     display: 'flex',
     flexDirection: 'column',
@@ -103,6 +147,19 @@ const styles = {
     minHeight: '100vh',
     padding: '10px',
     backgroundColor: '#ffffff',
+  },
+  section: {
+    height: '100vh',
+    width: '100%',
+    maxWidth: '1000px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    padding: '20px',
+    boxSizing: 'border-box',
+    scrollSnapAlign: 'start',
   },
   subtitleContainer: {
     marginTop: '-10px',

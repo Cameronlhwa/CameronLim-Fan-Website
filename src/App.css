@@ -1,10 +1,6 @@
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
   margin: 0;
+  padding: 0;
   font-family: system-ui;
 }
 
@@ -32,4 +28,50 @@ h2 {
   text-align: center;
   font-size: 20px;
   text-wrap: wrap;
+}
+
+.dashboard-banner {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 10px 2rem;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.banner-left {
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.dashboard-button {
+  padding: .8rem;
+  border: none;
+  color: white;
+  background-color: #5db1ff;
+  cursor: pointer;
+  pointer-events: all !important; /* Force clickable */
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+[id^="about-"],
+#home {
+  scroll-snap-align: start;
 }

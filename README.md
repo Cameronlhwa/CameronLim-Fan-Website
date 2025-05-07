@@ -1,4 +1,4 @@
-# One-to-Many Chat App
+# Content Creator to Audience Chat App
 
 This project is a real-time chat application designed specifically for **content creators** to engage directly with their audience. It solves the common issue of traditional broadcast platforms—like Instagram Channels—where creators can send messages but can't receive individual replies in an organized way.
 

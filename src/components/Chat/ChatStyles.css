@@ -46,19 +46,20 @@
 
 .message-input {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
 .message-input input {
   flex: 1;
-  padding: 12px;
+  padding: 10px 74px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 16px;
 }
 
 .message-input button {
-  padding: 12px 24px;
+  padding: 10px 20px;
   background: #007bff;
   color: white;
   border: none;

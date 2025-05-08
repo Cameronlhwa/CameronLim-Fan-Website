@@ -114,7 +114,7 @@ const HomeDescAndButtons = () => (
     <div id = "about-site" style = {styles.section}>
       <h2>About this site</h2>
       <div style = {styles.aboutSiteContent}>
-        <img src="IxMosChat.jpg" alt="Screenshot of site" style={styles.aboutImage}/>
+        <img src={`${import.meta.env.VITE_BASE_PATH || '/'}IxMosChat.jpg`} alt="Screenshot of site" style={styles.aboutImage}/>
         <p className = "text-box">
           Chat live with your favourite YouTuber,<br /> Cameron Lim!
           Stay updated on his daily life and<br /> get inspired to study harder alongside him.

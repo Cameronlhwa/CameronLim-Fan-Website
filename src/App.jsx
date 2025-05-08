@@ -113,7 +113,13 @@ const HomeDescAndButtons = () => (
     {/*Snap scroll section 2*/}
     <div id = "about-site" style = {styles.section}>
       <h2>About this site</h2>
-      <p>More info coming soon...</p>
+      <div style = {styles.aboutSiteContent}>
+        <img src="IxMosChat.jpg" alt="Screenshot of site" style={styles.aboutImage}/>
+        <p className = "text-box">
+          Chat live with your favourite YouTuber,<br /> Cameron Lim!
+          Stay updated on his daily life and<br /> get inspired to study harder alongside him.
+        </p>
+      </div>
     </div>
 
     {/*Snap scroll section 3*/}
@@ -131,6 +137,27 @@ const NotFoundRedirect = () => {
 };
 
 const styles = {
+  aboutSiteContent: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '40px',
+    marginTop: '20px',
+    flexWrap: 'wrap',
+    textAlign:'center',
+  },
+  aboutImage: {
+    width: '450px',
+    maxWidth: '100%',
+    borderRadius: '10px',
+    objectFit: 'cover',
+  },
+  aboutText: {
+    maxWidth: '500px',
+    fontSize: '1.1rem',
+    lineHeight: '1.6',
+  },
   homeContainer: {
     display: 'flex',
     flexDirection: 'column',

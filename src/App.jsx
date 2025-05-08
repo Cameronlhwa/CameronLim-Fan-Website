@@ -122,17 +122,29 @@ const HomeDescAndButtons = () => (
       </div>
     </div>
 
+    {/*Snap scroll section in between*/}
+    <div id = "about-setup" style = {styles.section}>
+      <h2>Setup your account :)</h2>
+      <div style = {styles.aboutSiteContentRev}>
+        <img src={`${import.meta.env.VITE_BASE_PATH || '/'}PersonalProfile.png`} alt = "Self photo" style={styles.aboutImage}/>
+        <p className="text-box">
+          Create an account with your email, then <br />
+          make sure to setup your own personal profile!
+        </p>
+      </div>
+    </div>
+
     {/*Snap scroll section 3*/}
     <div id = "about-me" style = {styles.section}>
       <h2>About Me</h2>
       <div style = {styles.aboutSiteContent}>
-      <p className="text-box">
-        Hi! I'm Cameron, a Computer Engineering student <br />
-        at the University of Waterloo. I love documenting <br />
-        my study journey on YouTube, and I built this <br />
-        site entirely myself — hope you enjoy it!
-      </p>
         <img src={`${import.meta.env.VITE_BASE_PATH || '/'}Jjajjangmyon.jpg`} alt = "Self photo" style={styles.aboutImage}/>
+        <p className="text-box">
+          Hi! I'm Cameron, a Computer Engineering student <br />
+          at the University of Waterloo. I love documenting <br />
+          my study journey on YouTube, and I built this <br />
+          site entirely myself — hope you enjoy it!
+        </p>
       </div>
     </div>
   </div>
@@ -148,6 +160,16 @@ const styles = {
   aboutSiteContent: {
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '40px',
+    marginTop: '20px',
+    flexWrap: 'wrap',
+    textAlign:'center',
+  },
+  aboutSiteContentRev: {
+    display: 'flex',
+    flexDirection: 'row-reverse',
     alignItems: 'center',
     justifyContent: 'center',
     gap: '40px',

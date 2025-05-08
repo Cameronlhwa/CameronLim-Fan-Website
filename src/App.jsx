@@ -125,7 +125,15 @@ const HomeDescAndButtons = () => (
     {/*Snap scroll section 3*/}
     <div id = "about-me" style = {styles.section}>
       <h2>About Me</h2>
-      <p>This site was fully developed by me, Cameron!</p>
+      <div style = {styles.aboutSiteContent}>
+      <p className="text-box">
+        Hi! I'm Cameron, a Computer Engineering student <br />
+        at the University of Waterloo. I love documenting <br />
+        my study journey on YouTube, and I built this <br />
+        site entirely myself — hope you enjoy it!
+      </p>
+        <img src={`${import.meta.env.VITE_BASE_PATH || '/'}Jjajjangmyon.jpg`} alt = "Self photo" style={styles.aboutImage}/>
+      </div>
     </div>
   </div>
 );

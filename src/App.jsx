@@ -193,6 +193,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    textAlign: 'center',
     width: '100%',
     boxSizing: 'border-box',
     scrollBehavior: 'smooth',
@@ -229,6 +230,8 @@ const styles = {
     flexDirection: 'column',
     gap: '15px',
     marginTop: '30px',
+    alignItems: 'center',
+    textAlign: 'center',
   },
   button: {
     padding: '12px 20px',

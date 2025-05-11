@@ -19,4 +19,4 @@ This project is a real-time chat application designed specifically for **content
 
 ## 📁 Tech Stack
 - **Frontend:** React, Vite  
-- **Backend:** Firebase (Authentication & Firestore)
+- **Backend:** Firebase (Authentication, Storage, & Firestore)

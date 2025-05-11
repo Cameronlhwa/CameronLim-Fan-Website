@@ -3,7 +3,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import AdminMessageList from './AdminMessageList';
 import AdminMessageInput from './AdminMessageInput';
 import { useNavigate } from 'react-router-dom';
-import './ChatStyles.css';
+import './AuthChatStyles.css';
 
 const AdminChatPage = () => {
   const { currentUser } = useAuth();

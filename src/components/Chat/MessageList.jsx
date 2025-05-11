@@ -41,7 +41,34 @@ export default function MessageList({ filterUserId, adminUid }) {
   const [messages, loading, error] = useCollectionData(messagesQuery, { idField: 'id' });
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (containerRef.current && messagesEndRef.current) {
+      const images = containerRef.current.querySelectorAll('img');
+
+      if (images.length===0) { //No images
+        messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
+      }
+      else {
+        let loadedCount = 0;
+
+        images.forEach(img => {
+          if (img.complete){
+            loadedCount++;
+          }
+          else {
+            img.onload = img.onerror = () => {
+              loadedCount++;
+              if (loadedCount === images.length) {
+                messagesEndRef.current.scrollIntoView({ behavior: 'smooth'});
+              }
+            }
+          }
+
+          if (loadedCount === images.length) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth'})
+          }
+        })
+      }
+    }
   };
 
   useEffect(() => {
@@ -53,7 +80,7 @@ export default function MessageList({ filterUserId, adminUid }) {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages]); //Updates everytime messages updates
 
   useEffect(() => {
     if (containerRef.current) {
@@ -76,7 +103,7 @@ export default function MessageList({ filterUserId, adminUid }) {
               className={`message ${msg.senderId === currentUser?.uid ? 'sent' : 'received'}`}
             >
               {msg.receiverId === 'broadcast' && (
-                <div className="broadcast-badge">From 🧋:</div>
+                <div className="broadcast-badge">From Cameron🧋:</div>
               )}
               <div className="message-content">{msg.content}</div>
 

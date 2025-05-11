@@ -49,7 +49,9 @@ export default function AdminMessageInput() {
             maxLength={100}
             placeholder="Type broadcast message..."
         />
+        <label htmlFor="file-upload" className="file-label">Choose File</label>
         <input
+            id="file-upload"
             type = "file"
             accept = "image/*"
             onChange = {(e) => setImageFile(e.target.files[0])}

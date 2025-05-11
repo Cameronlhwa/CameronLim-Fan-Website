@@ -17,7 +17,34 @@ export default function AdminMessageList() {
   const [messages, loading, error] = useCollectionData(messagesQuery, { idField: 'id' });
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (containerRef.current && messagesEndRef.current) {
+        const images = containerRef.current.querySelectorAll('img');
+  
+        if (images.length===0) { //No images
+          messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+        else {
+          let loadedCount = 0;
+  
+          images.forEach(img => {
+            if (img.complete){
+              loadedCount++;
+            }
+            else {
+              img.onload = img.onerror = () => {
+                loadedCount++;
+                if (loadedCount === images.length) {
+                  messagesEndRef.current.scrollIntoView({ behavior: 'smooth'});
+                }
+              }
+            }
+  
+            if (loadedCount === images.length) {
+              messagesEndRef.current.scrollIntoView({ behavior: 'smooth'})
+            }
+          })
+        }
+      }
   };
 
   useEffect(() => {

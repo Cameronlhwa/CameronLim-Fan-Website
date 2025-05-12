@@ -2,18 +2,37 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
-exports.setAdminClaim = functions.https.onRequest(async (req, res) => {
-  const adminUserId = 'YOUR_ADMIN_UID_HERE'; // Replace with your UID from Firebase Authentication
-  
+const WELCOME_IMAGE_URL = '/Jjajjangmyon.jpg';
+const ADMIN_UID = 'Ie35osxKxPMkroz5M6jvAe2Suhf2';
+
+exports.sendWelcomeMessage = functions.auth.user().onCreate(async (userRecord) => {
   try {
-    await admin.auth().setCustomUserClaims(adminUserId, { 
-      admin: true,
-      role: 'super-admin'
-    });
+    // Ensure user exists and is not admin
+    if (!userRecord || userRecord.uid === ADMIN_UID) return null;
+
+    // Create message document
+    const messageData = {
+      senderId: ADMIN_UID,
+      receiverId: userRecord.uid,
+      content: "Welcome to the chat! Here's a photo of my favorite meal 🖤",
+      imageUrl: WELCOME_IMAGE_URL,
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      read: false,
+      type: 'image',
+      isBroadcast: false
+    };
+
+    // Write to Firestore
+    const docRef = await admin.firestore().collection('messages').add(messageData);
     
-    res.status(200).send('Admin claims added successfully');
+    // Verify write operation
+    const doc = await docRef.get();
+    return doc.exists ? 
+      console.log(`Welcome message sent to ${userRecord.uid}`) :
+      Promise.reject('Message document not created');
+
   } catch (error) {
-    console.error('Error setting claims:', error);
-    res.status(500).send('Error setting admin claims');
+    console.error('Error in sendWelcomeMessage:', error);
+    return Promise.reject(error);
   }
 });

@@ -208,7 +208,7 @@ const styles = {
     backgroundColor: '#ffffff',
   },
   section: {
-    height: '100vh',
+    minHeight: '100vh',
     width: '100%',
     maxWidth: '1000px',
     display: 'flex',

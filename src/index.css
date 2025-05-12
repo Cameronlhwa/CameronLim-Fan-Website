@@ -14,4 +14,18 @@ a {
   transform: scale(0.98);
 }
 
+@media (max-width: 768px) {
+  section {
+    padding-bottom: 40px;
+  }
+
+  #home,
+  #about-site,
+  #about-setup,
+  #about-me {
+    margin-bottom: 40px; /* 👈 adds breathing room between sections */
+  }
+}
+
+
 

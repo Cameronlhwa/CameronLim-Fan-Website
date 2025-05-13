@@ -195,7 +195,7 @@
   padding-left: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 560px) {
   .chat-container {
     padding: 0 8px;
   }
@@ -217,6 +217,15 @@
     font-size: 14px;
   }
 
+  .message img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 8px;
+    object-fit: cover;
+    display: block;
+  }
+
   .message-input input {
     padding: 10px;
     font-size: 14px;
@@ -231,4 +240,12 @@
     max-width: 100%;
     height: auto;
   }
+
+  .message.sent img, 
+  .message.received img {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
 }

@@ -19,28 +19,27 @@ const UserChatPage = () => {
         </div>
       </header>
 
-        <main className="chat-main">
-            {currentUser ? (
-            <>
-                <MessageList 
-                filterUserId={currentUser.uid}
-                adminUid="Ie35osxKxPMkroz5M6jvAe2Suhf2"
-                />
-                <div className="input-container">
-                <MessageInput />
-                </div>
-            </>
-            ) : (
-            <div className="loading-chat">Loading chat session...</div>
-            )}
-        </main>
-        <button 
-          className="back-button"
-          onClick={() => navigate('/user')}
-        >
-          &larr; Return to Dashboard
-        </button>
-        
+      <main className="chat-main">
+        {currentUser ? (
+          <>
+            <MessageList 
+              filterUserId={currentUser.uid}
+              adminUid="Ie35osxKxPMkroz5M6jvAe2Suhf2"
+            />
+            <div className="input-container">
+              <MessageInput />
+            </div>
+          </>
+        ) : (
+          <div className="loading-chat">Loading chat session...</div>
+        )}
+      </main>    
+      <button 
+        className="back-button"
+        onClick={() => navigate('/user')}
+      >
+        &larr; Return to Dashboard
+      </button>
     </div>
   );
 };

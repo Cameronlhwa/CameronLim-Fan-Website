@@ -57,7 +57,7 @@ const SignInPage = () => {
         </form>
         <div className="auth-links">
           <Link to="/createaccount">Create New Account</Link>
-          <Link to="/forgot-password">Forgot Password?</Link>
+          {/*<Link to="/forgot-password">Forgot Password?</Link>*/}
         </div>
       </div>
     </div>

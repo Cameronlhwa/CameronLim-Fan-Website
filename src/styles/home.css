@@ -1,0 +1,142 @@
+/* Home Page Styles */
+
+.home-page {
+  width: 100%;
+}
+
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.content-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-3xl) 0;
+}
+
+.content-section.alt-bg {
+  background: var(--color-bg-secondary);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--color-text);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content-grid.reverse {
+  grid-template-columns: 1fr 1fr;
+  direction: rtl;
+}
+
+.content-grid.reverse > * {
+  direction: ltr;
+}
+
+.content-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.content-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.content-text p {
+  margin: 0;
+}
+
+@media (max-width: 968px) {
+  .content-grid,
+  .content-grid.reverse {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .content-grid.reverse {
+    direction: ltr;
+  }
+
+  .content-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+    padding: var(--spacing-xl) 0;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+  }
+
+  .content-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .content-text {
+    font-size: 1rem;
+  }
+}
+

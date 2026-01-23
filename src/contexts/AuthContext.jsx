@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase';
-import { useNavigate } from 'react-router-dom';
 import { updateProfile } from "firebase/auth";
 
 const AuthContext = createContext();
@@ -8,7 +7,6 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   const updateUsername = async (newName) => {
     try {

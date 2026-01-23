@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate, Outlet } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import SignInPage from './components/Auth/SignInPage';
 import UserDashboard from './components/Dashboard/UserDashboard';
@@ -7,24 +7,35 @@ import AdminDashboard from './components/Dashboard/AdminDashboard';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import CreateAccountPage from './components/Auth/CreateAccountPage';
 import UserChatPage from './components/Chat/UserChatPage';
-import {ChatProvider} from './contexts/ChatContext';
+import { ChatProvider } from './contexts/ChatContext';
 import AdminChatPage from './components/Chat/AdminChatPage';
-import { Outlet } from 'react-router-dom';
+import Navbar from './components/ui/Navbar';
+import Footer from './components/ui/Footer';
+import Container from './components/ui/Container';
+import Section from './components/ui/Section';
+import PrimaryButton from './components/ui/PrimaryButton';
+import './styles/global.css';
+import './styles/home.css';
 import './index.css';
 
-const BASE_PATH = import.meta.env.VITE_BASE_PATH || '/CameronLim-Fan-Website/';
+const BASE_PATH = import.meta.env.VITE_BASE_PATH || '/';
 
-const Layout = () => (
-  <>
-    <header>
-      <h1>Cameron Lim's Online Cafe</h1>
-      <div style={styles.subtitleContainer}>
-        <h2>Chat with Cameron Lim and his community :) 🖥️ 💬</h2>
-      </div>
-    </header>
-    <Outlet />
-  </>
-);
+const Layout = () => {
+  const location = useLocation();
+  const basePath = BASE_PATH.endsWith('/') ? BASE_PATH : `${BASE_PATH}/`;
+  const normalizedPath = location.pathname.startsWith(basePath)
+    ? `/${location.pathname.slice(basePath.length)}`.replace('//', '/')
+    : location.pathname;
+  const isAppShell = normalizedPath.startsWith('/user') || normalizedPath.startsWith('/admin');
+
+  return (
+    <>
+      {!isAppShell && <Navbar />}
+      <Outlet />
+      {!isAppShell && <Footer />}
+    </>
+  );
+};
 
 const URIValidator = ({ children }) => {
   const location = useLocation();
@@ -46,109 +57,115 @@ const App = () => (
     <AuthProvider>
       <ChatProvider>
         <URIValidator>
-          <div style={styles.container}>
-            <div style={styles.contentContainer}>
-              <Routes>
-                <Route>
-                  <Route path="/" element={<HomeDescAndButtons />} />
-                  <Route path="/signin" element={<SignInPage />} />
-                  <Route path="/createaccount" element={<CreateAccountPage />} />
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<HomeDescAndButtons />} />
+              <Route path="/signin" element={<SignInPage />} />
+              <Route path="/createaccount" element={<CreateAccountPage />} />
+              {/* Protected Routes */}
+              <Route element={<PrivateRoute />}>
+                <Route path="/user">
+                  <Route index element={<UserDashboard />} />
+                  <Route path="chat" element={<UserChatPage />} />
                 </Route>
-                {/* Protected Routes */}
-                <Route element={<PrivateRoute />}>
-                  {/* User Routes */}
-                  <Route path="/user">
-                    <Route index element={<UserDashboard />} />
-                    <Route path="chat" element={<UserChatPage />} />
-                  </Route>
-
-                  {/* Admin Route */}
-                  
-                  <Route path="/admin">
-                      <Route index element={<AdminDashboard />} />
-                      <Route path="chat" element={<AdminChatPage />} />
-                  </Route>
-                  
-                  
+                <Route path="/admin">
+                  <Route index element={<AdminDashboard />} />
+                  <Route path="chat" element={<AdminChatPage />} />
                 </Route>
-                <Route path="*" element={<NotFoundRedirect />} />
-              </Routes>
-            </div>
-          </div>
+              </Route>
+              <Route path="*" element={<NotFoundRedirect />} />
+            </Route>
+          </Routes>
         </URIValidator>
       </ChatProvider>
     </AuthProvider>
   </Router>
 );
 
-const HomeDescAndButtons = () => (
-  <div style = {styles.homeContainer}>
-    <div className = "dashboard-banner">
-      <div className = "banner-left">
-        <button className="dashboard-button" onClick = {()=>document.getElementById("home").scrollIntoView({behavior: 'smooth'})}>
-          Home
-        </button>
-        <button className = "dashboard-button" onClick = {()=>document.getElementById("about-site").scrollIntoView({behavior: 'smooth'})}>
-          About this site
-        </button>
-        <button className = "dashboard-button" onClick = {()=>document.getElementById("about-me").scrollIntoView({behavior: 'smooth'})}>
-          About me!
-        </button>
-      </div>
-    </div>
+const HomeDescAndButtons = () => {
+  const BASE_PATH = import.meta.env.VITE_BASE_PATH || '/';
 
-    {/*Snap scroll section 1*/}
-    <div id = "home" style = {styles.section}>
-      <h1>Cameron Lim's Online Cafe</h1>
-      <div style={styles.subtitleContainer}>
-        <h2>Chat with Cameron Lim and his community :) 🖥️ 💬</h2>
-      </div>
-      
-      <div style={styles.buttonContainer}>
-        <Link to="/signin" style={styles.button}>Sign In</Link>
-        <Link to="/createaccount" style={styles.button}>Create Account</Link>
-      </div>  
-    </div>
+  return (
+    <div className="home-page">
+      {/* Hero Section */}
+      <Section id="home" className="hero-section">
+        <Container>
+          <div className="hero-content">
+            <h1 className="hero-title">Cameron Lim's Online Cafe</h1>
+            <p className="hero-subtitle">Chat with Cameron Lim and his community 🖥️ 💬</p>
+            <div className="hero-buttons">
+              <Link to="/signin">
+                <PrimaryButton>Sign In</PrimaryButton>
+              </Link>
+              <Link to="/createaccount">
+                <PrimaryButton>Join Community</PrimaryButton>
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
-    {/*Snap scroll section 2*/}
-    <div id = "about-site" style = {styles.section}>
-      <h2>About this site</h2>
-      <div style = {styles.aboutSiteContent}>
-        <img src={`${import.meta.env.VITE_BASE_PATH || '/'}ChatPage2.png`} alt="Screenshot of site" style={styles.aboutImage}/>
-        <p className = "text-box">
-          Chat live with your favourite YouTuber,<br /> Cameron Lim!
-          Stay updated on his daily life and<br /> get inspired to study harder alongside him.
-        </p>
-      </div>
-    </div>
+      {/* About Site Section */}
+      <Section id="about-site" className="content-section">
+        <Container>
+          <h2 className="section-title">About this site</h2>
+          <div className="content-grid">
+            <img
+              src={`${BASE_PATH}ChatPage2.png`}
+              alt="Screenshot of chat interface"
+              className="content-image"
+            />
+            <div className="content-text">
+              <p>
+                Chat live with your favourite YouTuber, Cameron Lim!
+                Stay updated on his daily life and get inspired to study harder alongside him.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
-    {/*Snap scroll section in between*/}
-    <div id = "about-setup" style = {styles.section}>
-      <h2>Setup your account :)</h2>
-      <div style = {styles.aboutSiteContentRev}>
-        <img src={`${import.meta.env.VITE_BASE_PATH || '/'}PersonalProfile.png`} alt = "Self photo" style={styles.aboutImage}/>
-        <p className="text-box">
-          Create an account with your email, then <br />
-          make sure to setup your own personal profile!
-        </p>
-      </div>
-    </div>
+      {/* Setup Section */}
+      <Section id="about-setup" className="content-section alt-bg">
+        <Container>
+          <h2 className="section-title">Setup your account</h2>
+          <div className="content-grid reverse">
+            <img
+              src={`${BASE_PATH}PersonalProfile.png`}
+              alt="Profile setup"
+              className="content-image"
+            />
+            <div className="content-text">
+              <p>
+                Create an account with your email, then make sure to setup your own personal profile!
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
-    {/*Snap scroll section 3*/}
-    <div id = "about-me" style = {styles.section}>
-      <h2>About Me</h2>
-      <div style = {styles.aboutSiteContent}>
-        <img src={`${import.meta.env.VITE_BASE_PATH || '/'}Jjajjangmyon.jpg`} alt = "Self photo" style={styles.aboutImage}/>
-        <p className="text-box">
-          Hi! I'm Cameron, a Computer Engineering student <br />
-          at the University of Waterloo. I love documenting <br />
-          my study journey on YouTube, and I built this <br />
-          site entirely myself — hope you enjoy it!
-        </p>
-      </div>
+      {/* About Me Section */}
+      <Section id="about-me" className="content-section">
+        <Container>
+          <h2 className="section-title">About Me</h2>
+          <div className="content-grid">
+            <img
+              src={`${BASE_PATH}Jjajjangmyon.jpg`}
+              alt="Cameron Lim"
+              className="content-image"
+            />
+            <div className="content-text">
+              <p>
+                Hi! I'm Cameron, a Computer Engineering student at the University of Waterloo.
+                I love documenting my study journey on YouTube, and I built this site entirely myself — hope you enjoy it!
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
     </div>
-  </div>
-);
+  );
+};
 
 const NotFoundRedirect = () => {
   const navigate = useNavigate();
@@ -156,109 +173,5 @@ const NotFoundRedirect = () => {
   return null;
 };
 
-const styles = {
-  aboutSiteContent: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '40px',
-    marginTop: '20px',
-    flexWrap: 'wrap',
-    textAlign:'center',
-  },
-  aboutSiteContentRev: {
-    display: 'flex',
-    flexDirection: 'row-reverse',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '40px',
-    marginTop: '20px',
-    flexWrap: 'wrap',
-    textAlign:'center',
-  },
-  aboutImage: {
-    width: '450px',
-    maxWidth: '450px',
-    maxWidth: '100%',
-    borderRadius: '10px',
-    objectFit: 'cover',
-  },
-  aboutText: {
-    maxWidth: '500px',
-    fontSize: '1.1rem',
-    lineHeight: '1.6',
-  },
-  homeContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    width: '100%',
-    boxSizing: 'border-box',
-    scrollBehavior: 'smooth',
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    minHeight: '100vh',
-    padding: '10px',
-    backgroundColor: '#ffffff',
-  },
-  section: {
-    minHeight: '100vh',
-    width: '100%',
-    maxWidth: '1000px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    padding: '20px',
-    boxSizing: 'border-box',
-    scrollSnapAlign: 'start',
-  },
-  subtitleContainer: {
-    marginTop: '-10px',
-    textAlign: 'center',
-    color: '#666',
-  },
-  buttonContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '15px',
-    marginTop: '30px',
-    alignItems: 'center',
-    textAlign: 'center',
-  },
-  button: {
-    padding: '12px 20px',
-    fontSize: '1rem',
-    backgroundColor: '#5db1ff',
-    color: 'white',
-    border: 'none',
-    borderRadius: '10px',
-    cursor: 'pointer',
-    width: '80%',
-    maxWidth: '250px',
-    textDecoration: 'none',
-    textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    transition: 'transform 0.2s, background-color 0.2s',
-  },
-  contentContainer: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    padding: '10px',
-    flexDirection: 'column'
-  }
-};
 
 export default App;

@@ -1,0 +1,129 @@
+.message-input-container {
+  background: white;
+  border-top: 1px solid #dbe6fb;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.image-upload-button {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #e7eefb;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.image-upload-button:hover:not(:disabled) {
+  background: #dbe6fb;
+}
+
+.image-upload-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+.message-input-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.message-textarea {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dbe6fb;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  resize: none;
+  max-height: 120px;
+  overflow-y: auto;
+  background: white;
+  transition: border-color 0.2s;
+  line-height: 1.5;
+}
+
+.message-textarea:focus {
+  outline: none;
+  border-color: #2f6feb;
+  background: white;
+}
+
+.message-textarea:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.send-button {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  background: #2f6feb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.1s;
+  padding: 0;
+}
+
+.send-button:hover:not(:disabled) {
+  background: #1e57c8;
+  transform: scale(1.02);
+}
+
+.send-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #b8c7e6;
+}
+
+.message-limit {
+  font-size: 0.75rem;
+  color: #999;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .message-input-container {
+    padding: 0.625rem 0.75rem;
+  }
+
+  .image-upload-button,
+  .send-button {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.125rem;
+  }
+
+  .message-textarea {
+    font-size: 0.9375rem;
+    padding: 0.5rem 0.875rem;
+  }
+}
+

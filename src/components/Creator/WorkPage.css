@@ -1,0 +1,156 @@
+.work-form,
+.work-success,
+.work-email {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  border: 1px solid var(--creator-line);
+  border-radius: 22px;
+  background: var(--creator-card);
+  box-shadow: var(--creator-shadow);
+}
+
+.work-fields {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.work-form label,
+.work-span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--creator-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.work-span {
+  margin-top: 0.9rem;
+}
+
+.creator-page .work-form input,
+.creator-page .work-form textarea {
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 0.8rem;
+  border: 1px solid var(--creator-line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--creator-text);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.creator-page .work-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.work-platforms {
+  margin: 1.05rem 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.work-platforms legend {
+  margin-bottom: 0.55rem;
+  color: var(--creator-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.work-platforms div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.work-check {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.45rem !important;
+  min-height: 40px;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--creator-line);
+  border-radius: 999px;
+  background: #faf7f3;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+.work-check input {
+  width: 1rem !important;
+  height: 1rem;
+  margin: 0;
+  accent-color: #1c1917;
+}
+
+.work-error {
+  margin: 0.9rem 0 0;
+  color: #9f1239;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.work-form .creator-button {
+  margin-top: 1rem;
+}
+
+.work-success h2 {
+  margin: 0;
+  font-family: 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 560;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: var(--creator-text);
+}
+
+.work-success p,
+.work-email p {
+  margin: 0.45rem 0 0;
+  color: #57534e;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.work-email {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.work-email p {
+  margin: 0;
+}
+
+.creator-page button.work-copy {
+  width: auto !important;
+  margin: 0;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--creator-line);
+  border-radius: 999px;
+  background: #faf7f3;
+  color: var(--creator-text);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 560;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.creator-page button.work-copy:hover {
+  transform: none;
+  background: #f3eee6;
+}
+
+@media (min-width: 720px) {
+  .work-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+}

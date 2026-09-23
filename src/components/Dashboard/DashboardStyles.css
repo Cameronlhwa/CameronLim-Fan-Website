@@ -10,7 +10,7 @@
   width: 100%;
 }
 .dashboard h1 {
-  color: #395A7F;
+  color: #1c1917;
   margin-bottom: 1.5rem;
 }
 
@@ -21,9 +21,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: #fffdfb;
   padding: 10px 2rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e6e0d6;
   width: 100vw;
   box-sizing: border-box;
 }
@@ -42,7 +42,7 @@
   padding: 1rem;
   border: none;
   color: white;
-  background-color: #007bff;
+  background-color: #1c1917;
   cursor: pointer;
   pointer-events: all !important; /* Force clickable */
 }
@@ -91,7 +91,7 @@
   width: 100%;
   padding: 0.8rem;
   margin: 1rem 0;
-  border: 1px solid #ddd;
+  border: 1px solid #e6e0d6;
   border-radius: 4px;
   font-size: 1rem;
 }

@@ -2,13 +2,13 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
-  background: #eef3fb;
+  background: #f3efe8;
 }
 
 /* Sidebar */
 .slack-sidebar {
   width: 260px;
-  background: #5b6fae;
+  background: #1c1917;
   color: #f8fbff;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: #6c7fba;
+  background: #44403c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +81,7 @@
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: #6c7fba;
+  background: #44403c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +133,7 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: #6c7fba;
+  background: #44403c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,11 +190,11 @@
 
 .chat-header-slack {
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid #dbe6fb;
+  border-bottom: 1px solid #e6e0d6;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f3f7ff;
+  background: #faf7f3;
 }
 
 .chat-header-info {
@@ -207,7 +207,7 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: #5b6fae;
+  background: #1c1917;
   color: #f8fbff;
   display: flex;
   align-items: center;
@@ -242,11 +242,11 @@
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   transition: background 0.2s;
-  color: #4c5f8f;
+  color: #57534e;
 }
 
 .header-icon-button:hover {
-  background: #e7eefb;
+  background: #f3eee6;
 }
 
 .chat-content-area {

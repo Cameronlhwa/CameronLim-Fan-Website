@@ -13,9 +13,13 @@
 }
 
 .auth-card h2 {
+  font-family: 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
+  font-size: 2rem;
+  font-weight: 560;
+  letter-spacing: -0.02em;
   text-align: center;
-  margin-bottom: 1.5rem;
-  color: #1a1a1a;
+  margin-bottom: 1.35rem;
+  color: #1c1917;
 }
 
 .auth-card form {
@@ -43,8 +47,9 @@
 }
 
 .auth-links a {
-  color: #007AFF;
-  text-decoration: none;
+  color: #1c1917;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   margin-left: 0.25rem;
 }
 

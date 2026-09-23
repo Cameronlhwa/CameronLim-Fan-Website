@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate, useLocation, useNavigate, Outlet } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import SignInPage from './components/Auth/SignInPage';
 import UserDashboard from './components/Dashboard/UserDashboard';
@@ -11,6 +11,9 @@ import { ChatProvider } from './contexts/ChatContext';
 import AdminChatPage from './components/Chat/AdminChatPage';
 import Navbar from './components/ui/Navbar';
 import Footer from './components/ui/Footer';
+import LinksPage from './components/Links/LinksPage';
+import RatesPage from './components/Creator/RatesPage';
+import WorkPage from './components/Creator/WorkPage';
 import Container from './components/ui/Container';
 import Section from './components/ui/Section';
 import PrimaryButton from './components/ui/PrimaryButton';
@@ -27,12 +30,14 @@ const Layout = () => {
     ? `/${location.pathname.slice(basePath.length)}`.replace('//', '/')
     : location.pathname;
   const isAppShell = normalizedPath.startsWith('/user') || normalizedPath.startsWith('/admin');
+  const isCreatorPage =
+    normalizedPath === '/links' || normalizedPath.startsWith('/links/');
 
   return (
     <>
-      {!isAppShell && <Navbar />}
+      {!isAppShell && !isCreatorPage && <Navbar />}
       <Outlet />
-      {!isAppShell && <Footer />}
+      {!isAppShell && !isCreatorPage && <Footer />}
     </>
   );
 };
@@ -60,6 +65,11 @@ const App = () => (
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<HomeDescAndButtons />} />
+              <Route path="/links" element={<LinksPage />} />
+              <Route path="/links/rates" element={<RatesPage />} />
+              <Route path="/links/work" element={<WorkPage />} />
+              <Route path="/rates" element={<Navigate to="/links/rates" replace />} />
+              <Route path="/work" element={<Navigate to="/links/work" replace />} />
               <Route path="/signin" element={<SignInPage />} />
               <Route path="/createaccount" element={<CreateAccountPage />} />
               {/* Protected Routes */}

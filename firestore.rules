@@ -28,5 +28,36 @@ service cloud.firestore {
         ) &&
         request.resource.data.timestamp == request.time;
     }
+
+    function isValidInquiry() {
+      let data = request.resource.data;
+      return data.keys().hasOnly(['name', 'email', 'brand', 'link', 'platforms', 'timing', 'message', 'createdAt'])
+        && data.name is string
+        && data.name.size() > 0
+        && data.name.size() <= 80
+        && data.email is string
+        && data.email.matches('.+@.+\\..+')
+        && data.email.size() <= 120
+        && data.brand is string
+        && data.brand.size() > 0
+        && data.brand.size() <= 80
+        && data.link is string
+        && data.link.size() <= 200
+        && data.timing is string
+        && data.timing.size() <= 120
+        && data.message is string
+        && data.message.size() > 0
+        && data.message.size() <= 2000
+        && data.platforms is list
+        && data.platforms.size() > 0
+        && data.platforms.size() <= 5
+        && data.platforms.hasOnly(['YouTube integration', 'YouTube Short', 'Instagram Reel', 'Short + Reel package', 'Not sure yet'])
+        && data.createdAt == request.time;
+    }
+
+    match /inquiries/{inquiryId} {
+      allow create: if isValidInquiry();
+      allow read: if isAdmin();
+    }
   }
 }

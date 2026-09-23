@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap');
+
+.creator-page {
+  --creator-bg: #f3efe8;
+  --creator-card: #fffdfb;
+  --creator-text: #1c1917;
+  --creator-muted: #78716c;
+  --creator-soft: #a8a29e;
+  --creator-line: #e6e0d6;
+  --creator-icon-bg: #f3eee6;
+  --creator-shadow: 0 1px 2px rgba(68, 48, 28, 0.04), 0 8px 22px rgba(68, 48, 28, 0.045);
+  --creator-shadow-hover: 0 2px 6px rgba(68, 48, 28, 0.05), 0 16px 34px rgba(68, 48, 28, 0.08);
+
+  min-height: 100dvh;
+  background:
+    radial-gradient(900px 420px at 50% -8%, rgba(255, 250, 244, 0.95), transparent 62%),
+    var(--creator-bg);
+  color: var(--creator-text);
+  font-family: 'Instrument Sans', 'Avenir Next', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.creator-page * {
+  box-sizing: border-box;
+}
+
+.creator-column {
+  width: min(840px, 100%);
+  margin: 0 auto;
+  padding:
+    max(1.35rem, env(safe-area-inset-top))
+    1.25rem
+    max(2.75rem, env(safe-area-inset-bottom));
+}
+
+.creator-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  color: var(--creator-soft);
+}
+
+.creator-page a.creator-domain {
+  width: auto !important;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.creator-domain:hover {
+  color: var(--creator-muted);
+}
+
+.creator-page a.creator-back {
+  display: inline-flex;
+  align-items: center;
+  width: auto !important;
+  margin: 0 0 1.35rem;
+  color: var(--creator-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.creator-page a.creator-back:hover {
+  color: var(--creator-text);
+}
+
+.creator-title {
+  margin: 0;
+  font-family: 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--creator-text);
+  text-align: left;
+}
+
+.creator-lede {
+  margin: 0.85rem 0 0;
+  max-width: 38rem;
+  color: #57534e;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.creator-page a.creator-button,
+.creator-page button.creator-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto !important;
+  min-height: 48px;
+  margin: 0;
+  padding: 0.75rem 1.15rem;
+  border: 1px solid #1c1917;
+  border-radius: 999px;
+  background: #1c1917;
+  color: #fffdfb;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 560;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.creator-page a.creator-button:hover,
+.creator-page button.creator-button:hover {
+  transform: translateY(-1px);
+  background: #292524;
+}
+
+.creator-page button.creator-button:disabled {
+  cursor: default;
+  transform: none;
+  opacity: 0.65;
+}
+
+.creator-page a:focus-visible,
+.creator-page button:focus-visible,
+.creator-page input:focus-visible,
+.creator-page textarea:focus-visible {
+  outline: 2px solid #a8a29e;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .creator-title {
+    font-size: 2.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .creator-page a.creator-button,
+  .creator-page button.creator-button {
+    transition: none;
+  }
+}

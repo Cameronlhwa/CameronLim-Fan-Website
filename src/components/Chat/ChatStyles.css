@@ -60,7 +60,7 @@
 
 .message-input button {
   padding: 10px 20px;
-  background: #007bff;
+  background: #1c1917;
   color: white;
   border: none;
   border-radius: 8px;
@@ -69,7 +69,7 @@
 }
 
 .message-input button:hover {
-  background: #0056b3;
+  background: #292524;
 }
 
 .message {
@@ -83,7 +83,7 @@
 
 .message.sent {
   align-self: flex-end;
-  background: #007bff;
+  background: #1c1917;
   color: white;
   margin-right: 8px;
   border-radius: 8px;
@@ -92,7 +92,7 @@
 /* FIX TYPO HERE */
 .message.received {
   align-self: flex-start;
-  background: #00b6e8;
+  background: #78716c;
   color: white;
   border-radius: 8px;
   margin-left: 8px;
@@ -131,7 +131,7 @@
   width: 0;
   height: 0;
   border: 8px solid transparent;
-  border-left-color: #007bff;
+  border-left-color: #1c1917;
   border-right: 0;
 }
 
@@ -148,7 +148,7 @@
 }
 
 .back-button {
-  background-color: #007bff;
+  background-color: #1c1917;
 }
 
 /*New Styles*/
@@ -174,7 +174,7 @@
 }
 
 .user-item.selected {
-  background: #e3f2fd;
+  background: #f3eee6;
 }
 
 .user-email {

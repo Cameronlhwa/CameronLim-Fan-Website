@@ -1,0 +1,147 @@
+.rates-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+}
+
+.rate-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  min-height: 148px;
+  padding: 1.15rem 1.15rem 1.05rem;
+  border: 1px solid var(--creator-line);
+  border-radius: 18px;
+  background: var(--creator-card);
+  box-shadow: var(--creator-shadow);
+}
+
+.rate-card h2 {
+  margin: 0;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--creator-text);
+  text-align: left;
+}
+
+.rate-card p {
+  margin: 0.3rem 0 0;
+  color: var(--creator-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.rate-badge {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: #f3eee6;
+  color: #57534e;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.rate-card .rate-price {
+  margin: 0;
+  font-family: 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--creator-text);
+}
+
+.rate-price span {
+  font-family: 'Instrument Sans', 'Avenir Next', 'Segoe UI', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--creator-soft);
+}
+
+.rates-included {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.2rem 0.4rem;
+  border: 1px solid var(--creator-line);
+  border-radius: 22px;
+  background: var(--creator-card);
+  box-shadow: var(--creator-shadow);
+}
+
+.rates-included h2 {
+  margin: 0;
+  font-family: 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 560;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--creator-text);
+  text-align: left;
+}
+
+.rates-included ul {
+  list-style: none;
+  display: grid;
+  gap: 0.15rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+
+.rates-included li {
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--creator-line);
+}
+
+.rates-included h3 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--creator-text);
+}
+
+.rates-included p {
+  margin: 0.25rem 0 0;
+  color: #57534e;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.rates-cta {
+  margin-top: 1.6rem;
+}
+
+@media (min-width: 720px) {
+  .rates-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rate-card-featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .rate-card-featured .rate-price {
+    flex: 0 0 auto;
+  }
+
+  .rates-included ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.5rem;
+  }
+
+  .rates-included li:nth-child(2) {
+    border-top: 1px solid var(--creator-line);
+  }
+}

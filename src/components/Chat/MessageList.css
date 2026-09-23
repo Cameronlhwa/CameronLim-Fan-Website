@@ -3,7 +3,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  background: #f3f7ff;
+  background: #f6f1ea;
   padding: 1.5rem 2rem;
   min-height: 0;
   -webkit-overflow-scrolling: touch;
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   margin: 1rem 0 0.75rem;
-  color: #7b8bb7;
+  color: #78716c;
   font-size: 0.8125rem;
   font-weight: 600;
 }
@@ -32,7 +32,7 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: #dbe6fb;
+  background: #e6e0d6;
   margin: 0 0.75rem;
 }
 
@@ -60,7 +60,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: #2f6feb;
+  background: #1c1917;
   color: white;
   border: none;
   cursor: pointer;
@@ -75,7 +75,7 @@
 
 .scroll-to-bottom-button:hover {
   transform: scale(1.1);
-  background: #1e57c8;
+  background: #292524;
 }
 
 .scroll-to-bottom-button:active {

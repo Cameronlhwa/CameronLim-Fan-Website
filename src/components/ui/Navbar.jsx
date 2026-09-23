@@ -38,6 +38,9 @@ const Navbar = () => {
               </button>
             </>
           )}
+          <Link to="/links" className="navbar-link">
+            Links
+          </Link>
           {currentUser ? (
             <Link to="/user" className="navbar-link">
               Dashboard

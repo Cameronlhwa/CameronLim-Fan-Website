@@ -1,33 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui;
-}
-
-h1 {
-  color: #474646;
-  margin-bottom: 1rem;
-}
-
-button {
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  background-color: #797979;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-h2 {
-  text-align: center;
-  font-size: 20px;
-  text-wrap: wrap;
+  font-family: 'Instrument Sans', 'Avenir Next', 'Segoe UI', sans-serif;
 }
 
 .dashboard-banner {
@@ -37,9 +11,9 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: #fffdfb;
   padding: 10px 2rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e6e0d6;
   width: 100%;
   box-sizing: border-box;
 }
@@ -55,7 +29,7 @@ h2 {
   padding: .8rem;
   border: none;
   color: white;
-  background-color: #5db1ff;
+  background-color: #1c1917;
   cursor: pointer;
   pointer-events: all !important; /* Force clickable */
 }
@@ -77,7 +51,8 @@ body {
 }
 
 .text-box {
-  background-color: #ffffff;
+  background-color: #fffdfb;
+  border: 1px solid #e6e0d6;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -105,15 +80,6 @@ body {
     align-items: center;
     gap: 8px;
     font-size: 16px;
-  }
-
-  /* ✅ Apply width only to generic buttons, but NOT those inside .banner-left */
-  a:not(.dashboard-button),
-  button:not(.dashboard-button) {
-    width: 80% !important;
-    font-size: 1rem;
-    text-align: center;
-    margin: 0 auto;
   }
 
   .dashboard-button {
